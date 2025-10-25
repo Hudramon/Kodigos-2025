@@ -1,0 +1,144 @@
+/* --- 1. IMPORTAÇÃO DA NOVA FONTE PROFISSIONAL --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* --- GLOBAIS E FUNDO --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Usando a nova fonte "Inter" */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+/* --- CARD PRINCIPAL --- */
+#app {
+    position: relative;
+    background: rgba(255, 255, 255, 0.65); /* Um pouco mais opaco para legibilidade */
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px; /* Mais arredondado */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    padding: 2.5rem 3rem;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* --- TÍTULOS E GRUPOS DE FORMULÁRIO (FOCO NO ESPAÇAMENTO) --- */
+h1 {
+    text-align: center;
+    color: #1c2a4e;
+    margin-bottom: 3rem; /* Mais espaço após o título */
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px; /* Detalhe de tipografia */
+}
+
+/* Base para espaçamento vertical consistente */
+.form-group {
+    margin-bottom: 2rem; /* Aumenta o respiro entre os blocos */
+}
+
+/* Estilo para os labels dos blocos */
+.form-label {
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #3d4a66;
+}
+
+/* --- INPUTS E TEXTAREA --- */
+.input-wrapper { position: relative; }
+.input-icon {
+    position: absolute; top: 50%; left: 16px; transform: translateY(-50%);
+    color: #929cb3; pointer-events: none;
+}
+input[type="text"], input[type="password"], textarea {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3.2rem; /* Padding mais generoso */
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(200, 200, 220, 0.5);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    color: #1c2a4e;
+    transition: all 0.2s ease-in-out;
+}
+textarea { resize: vertical; min-height: 120px; padding-left: 1rem; }
+input:focus, textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.9);
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.25);
+}
+
+/* --- BOTÃO PRINCIPAL COM HOVER REFINADO --- */
+.btn-primary {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(90deg, #5a67d8 0%, #7f5af0 100%);
+    box-shadow: 0 4px 15px rgba(90, 103, 216, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+.btn-primary:hover {
+    transform: translateY(-2px); /* Elevação sutil */
+    filter: brightness(1.1); /* Gradiente mais vibrante */
+    box-shadow: 0 7px 25px rgba(90, 103, 216, 0.5); /* Sombra mais difusa */
+}
+
+/* --- BOTÃO DE LOGOUT --- */
+.logout-btn {
+    position: absolute; top: 20px; right: 20px; background: transparent; border: none;
+    cursor: pointer; color: #555; padding: 8px; border-radius: 50%;
+    transition: all 0.2s ease;
+}
+.logout-btn:hover { background-color: rgba(0, 0, 0, 0.08); transform: scale(1.1); }
+
+/* --- COMPONENTES CUSTOMIZADOS (CHECKBOX E UPLOAD) --- */
+.custom-checkbox {
+    display: flex; align-items: center; cursor: pointer;
+    padding: 0.5rem; border-radius: 8px; transition: background-color 0.2s ease;
+}
+.custom-checkbox:not(:last-child) { margin-bottom: 0.5rem; }
+.custom-checkbox:hover { background-color: rgba(255, 255, 255, 0.5); }
+.custom-checkbox input { display: none; }
+.checkmark {
+    height: 22px; width: 22px; background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(200, 200, 220, 0.7); border-radius: 6px;
+    margin-right: 12px; position: relative; transition: all 0.2s ease; flex-shrink: 0;
+}
+.custom-checkbox input:checked + .checkmark { background: #667eea; border-color: #5a67d8; }
+.checkmark::after {
+    content: ''; position: absolute; display: none; left: 7px; top: 3px;
+    width: 6px; height: 12px; border: solid white; border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+.custom-checkbox input:checked + .checkmark::after { display: block; }
+
+input[type="file"] { display: none; }
+.custom-file-upload {
+    display: inline-block; padding: 0.8rem 1.5rem; cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.7); border: 1px solid rgba(200, 200, 220, 0.7);
+    border-radius: 10px; font-weight: 600; color: #333; transition: all 0.2s ease;
+}
+.custom-file-upload:hover { background-color: rgba(255, 255, 255, 0.9); }
+.file-name { margin-left: 1rem; color: #555; font-style: italic; }
+#photo-preview { max-width: 100%; margin-top: 1rem; border-radius: 8px; }
+.success-message { text-align: center; color: #16a34a; font-weight: 600; margin-top: 1.5rem; }

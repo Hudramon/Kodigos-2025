@@ -1,0 +1,6 @@
+**/bin/
+**/obj/
+.vscode/
+ordens.db
+ordens.db-shm
+ordens.db-wal

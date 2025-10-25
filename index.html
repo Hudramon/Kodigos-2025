@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Ordem de Serviço</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div v-if="!logado">
+    <form @submit.prevent="fazerLogin">
+        <h1>Acessar Plataforma</h1>
+        <div class="form-group input-wrapper">
+            <svg class="input-icon" ...></svg>
+            <input type="text" v-model="login.usuario" placeholder="Usuário (admin)">
+        </div>
+        <div class="form-group input-wrapper">
+            <svg class="input-icon" ...></svg>
+            <input type="password" v-model="login.senha" placeholder="Senha (admin123)">
+        </div>
+        <p v-if="login.erro" style="color: #dc2626; text-align: center; margin-bottom: 1.5rem;">Usuário ou senha inválidos.</p>
+        
+        <button type="submit" class="btn-primary">Entrar</button>
+    </form>
+</div>
+
+        <div v-if="logado">
+           <button @click="fazerLogout" class="logout-btn" title="Sair">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+        <polyline points="16 17 21 12 16 7"></polyline>
+        <line x1="21" y1="12" x2="9" y2="12"></line>
+    </svg>
+</button>
+            <h1>Nova Ordem de Serviço</h1>
+            
+            <div class="form-group">
+                <label class="form-label">Descrição das Atividades</label>
+                <textarea rows="4" v-model="os.descricao" placeholder="Detalhe o serviço realizado..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Checklist de Verificação</label>
+                <label class="custom-checkbox">Ferramentas guardadas
+                    <input type="checkbox" value="Ferramentas guardadas" v-model="os.checklist">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="custom-checkbox">Ambiente limpo
+                    <input type="checkbox" value="Ambiente limpo" v-model="os.checklist">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="custom-checkbox">Equipamento testado
+                    <input type="checkbox" value="Equipamento testado" v-model="os.checklist">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Foto de Comprovação</label>
+                <label for="file-upload" class="custom-file-upload">
+                    Anexar Foto
+                </label>
+                <input id="file-upload" type="file" accept="image/*" @change="carregarFoto">
+                <span class="file-name">{{ os.fileName || "Nenhum arquivo selecionado" }}</span>
+                <img :src="os.fotoPreview" id="photo-preview" v-if="os.fotoPreview">
+            </div>
+
+            <button @click="salvarOS" class="btn-primary">Registrar Serviço</button>
+            <p v-if="mensagemSucesso" class="success-message">{{ mensagemSucesso }}</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

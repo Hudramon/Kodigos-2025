@@ -1,4 +1,3 @@
-/* --- 1. IMPORTAÇÃO DA NOVA FONTE PROFISSIONAL --- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 /* --- GLOBAIS E FUNDO --- */
@@ -9,7 +8,6 @@
 }
 
 body {
-    /* Usando a nova fonte "Inter" */
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #333;
@@ -23,11 +21,11 @@ body {
 /* --- CARD PRINCIPAL --- */
 #app {
     position: relative;
-    background: rgba(255, 255, 255, 0.65); /* Um pouco mais opaco para legibilidade */
+    background: rgba(255, 255, 255, 0.65); 
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 24px; /* Mais arredondado */
+    border-radius: 24px;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     padding: 2.5rem 3rem;
     width: 100%;
@@ -38,15 +36,15 @@ body {
 h1 {
     text-align: center;
     color: #1c2a4e;
-    margin-bottom: 3rem; /* Mais espaço após o título */
+    margin-bottom: 3rem; 
     font-size: 2rem;
     font-weight: 700;
-    letter-spacing: -0.5px; /* Detalhe de tipografia */
+    letter-spacing: -0.5px; 
 }
 
 /* Base para espaçamento vertical consistente */
 .form-group {
-    margin-bottom: 2rem; /* Aumenta o respiro entre os blocos */
+    margin-bottom: 2rem;
 }
 
 /* Estilo para os labels dos blocos */
@@ -65,7 +63,7 @@ h1 {
 }
 input[type="text"], input[type="password"], textarea {
     width: 100%;
-    padding: 1rem 1rem 1rem 3.2rem; /* Padding mais generoso */
+    padding: 1rem 1rem 1rem 3.2rem;
     background: rgba(255, 255, 255, 0.5);
     border: 1px solid rgba(200, 200, 220, 0.5);
     border-radius: 12px;
@@ -98,9 +96,9 @@ input:focus, textarea:focus {
     transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 .btn-primary:hover {
-    transform: translateY(-2px); /* Elevação sutil */
-    filter: brightness(1.1); /* Gradiente mais vibrante */
-    box-shadow: 0 7px 25px rgba(90, 103, 216, 0.5); /* Sombra mais difusa */
+    transform: translateY(-2px); 
+    filter: brightness(1.1); 
+    box-shadow: 0 7px 25px rgba(90, 103, 216, 0.5); 
 }
 
 /* --- BOTÃO DE LOGOUT --- */
